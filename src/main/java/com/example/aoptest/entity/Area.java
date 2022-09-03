@@ -1,6 +1,7 @@
 package com.example.aoptest.entity;
 
 import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
 import java.io.Serializable;
@@ -23,7 +24,7 @@ public class Area extends Model<Area> {
 
     private static final long serialVersionUID = 1L;
 
-    @TableField("ID")
+    @TableId("ID")
     private BigDecimal id;
 
     @TableField("NAME")

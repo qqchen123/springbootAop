@@ -1,5 +1,6 @@
 package com.example.aoptest.entity;
 
+import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 
 import java.util.Date;
@@ -11,6 +12,7 @@ import java.util.Date;
  * @DATE: 2022/9/2 21:52
  */
 @Data
+@TableName("T_OWNERS")
 public class Owner {
     private Integer ID;
     private String name;

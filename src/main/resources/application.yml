@@ -25,6 +25,7 @@ spring:
     username: wateruser
     password: itcast
     driver-class-name: oracle.jdbc.driver.OracleDriver
+    type: com.alibaba.druid.pool.DruidDataSource
 
 mybatis-plus:
   # xml文件路径

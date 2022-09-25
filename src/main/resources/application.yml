@@ -27,6 +27,10 @@ spring:
     driver-class-name: oracle.jdbc.driver.OracleDriver
     type: com.alibaba.druid.pool.DruidDataSource
 
+#  redis:
+#    host: localhost
+#    port: 6379
+
 mybatis-plus:
   # xml文件路径
   mapper-locations: classpath:mapper/*.xml

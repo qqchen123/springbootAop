@@ -1,12 +1,11 @@
 package com.example.aoptest.controller;
 
 import com.example.aoptest.entity.Owner;
+import com.example.aoptest.entity.query.City;
 import com.example.aoptest.mapper.OwnerMapper;
 import com.example.aoptest.proxy.IndexPermission;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -17,9 +16,10 @@ public class IndexController {
     @Autowired
     private OwnerMapper ownerMapper;
 
-    @GetMapping("/index")
+    @PostMapping("/index")
     @IndexPermission
-    public String index(){
+    public String index(@RequestBody City city){
+        System.out.println(city);
         return "indexController index";
     }
 

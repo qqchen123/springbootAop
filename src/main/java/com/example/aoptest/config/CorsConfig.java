@@ -6,7 +6,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 /**
  * @PROJECT_NAME: AopTest
- * @DESCRIPTION:
+ * @DESCRIPTION: 跨域
  * @USER: ejchen
  * @DATE: 2022/9/25 16:22
  */

@@ -4,11 +4,13 @@ import com.example.aoptest.entity.Owner;
 import com.example.aoptest.entity.query.City;
 import com.example.aoptest.mapper.OwnerMapper;
 import com.example.aoptest.proxy.IndexPermission;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@Slf4j
 @RestController
 @RequestMapping("/index")
 public class IndexController {
@@ -19,7 +21,16 @@ public class IndexController {
     @PostMapping("/index")
     @IndexPermission
     public String index(@RequestBody City city){
-        System.out.println(city);
+//        System.out.println(city);
+        log.info(city.toString());
+        return "indexController index";
+    }
+
+    @GetMapping("/myIndex")
+    @IndexPermission
+    public String myIndex(){
+        log.info("my index");
+        log.error("my Index error");
         return "indexController index";
     }
 

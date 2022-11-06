@@ -19,6 +19,10 @@ spring:
 spring:
   profiles:
     active: test
+#  boot:
+#    admin:
+#      client:
+#        url: http://127.0.0.1:9000
 
   datasource:
     url: jdbc:oracle:thin:@192.168.80.10:1521:orcl
@@ -49,3 +53,4 @@ mybatis-plus:
     db-column-underline: true
     # id自增类型(数据库id自增)
     id-type: 0
+

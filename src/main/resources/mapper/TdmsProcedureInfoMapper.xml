@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.aoptest.mapper.TdmsProcedureInfoMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.example.aoptest.entity.TdmsProcedureInfo">
+        <id column="PROCEDURE_ID" property="procedureId" />
+        <result column="ITEM" property="item" />
+        <result column="RESULT" property="result" />
+        <result column="REPORT" property="report" />
+        <result column="REMARK" property="remark" />
+        <result column="STATUS" property="status" />
+        <result column="PROJECT_ID" property="projectId" />
+        <result column="CATE_ID" property="cateId" />
+        <result column="CREATE_TIME" property="createTime" />
+        <result column="UPDATE_TIME" property="updateTime" />
+        <result column="IS_DELETE" property="isDelete" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        PROCEDURE_ID, ITEM, RESULT, REPORT, REMARK, STATUS, PROJECT_ID, CATE_ID, CREATE_TIME, UPDATE_TIME, IS_DELETE
+    </sql>
+    <select id="getProcedureInfoAndCateByProjectId"
+            resultType="com.example.aoptest.entity.dto.ProcedureInfoAndCate">
+        select t.procedure_id,
+               t.item,
+               t.project_id,
+               t.cate_id,
+               tt.cate_name,
+               ttt.cate_id    p_cate_id,
+               ttt.cate_name  p_cate_name
+        from TDMS_PROCEDURE_INFO t
+                 inner join tdms_procedure_cate tt
+                 inner join tdms_procedure_cate ttt
+                            on tt.parent_id = ttt.cate_id on t.cate_id = tt.cate_id
+        where t.project_id=#{projectId}
+    </select>
+
+</mapper>

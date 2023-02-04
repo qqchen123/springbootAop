@@ -21,7 +21,7 @@ public class IndexController {
     @PostMapping("/index")
     @IndexPermission
     public String index(@RequestBody City city){
-//        System.out.println(city);
+        System.out.println(city);
         log.info(city.toString());
         return "indexController index";
     }
@@ -31,7 +31,7 @@ public class IndexController {
     public String myIndex(){
         log.info("my index");
         log.error("my Index error");
-        return "indexController index";
+        return "indexController index 1231234444555";
     }
 
     @GetMapping("/owner")

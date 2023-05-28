@@ -1,5 +1,8 @@
 package com.example.aoptest.entity;
 
+import com.alibaba.excel.annotation.ExcelIgnore;
+import com.alibaba.excel.annotation.ExcelProperty;
+import com.alibaba.excel.annotation.write.style.ColumnWidth;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
@@ -27,15 +30,22 @@ public class Address extends Model<Address> {
 
     private static final long serialVersionUID = 1L;
 
+    @ExcelIgnore
     @TableId(value = "ID", type = IdType.AUTO)
     private BigDecimal id;
 
+    @ColumnWidth(30)
+    @ExcelProperty("地址名称")
     @TableField("NAME")
     private String name;
 
+    @ColumnWidth(20)
+    @ExcelProperty("地区id")
     @TableField("AREAID")
     private BigDecimal areaid;
 
+    @ColumnWidth(20)
+    @ExcelProperty("管理者id")
     @TableField("OPERATORID")
     private BigDecimal operatorid;
 

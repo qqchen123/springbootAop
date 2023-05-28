@@ -14,5 +14,11 @@
     <sql id="Base_Column_List">
         ID, NAME, AREAID, OPERATORID
     </sql>
+    <insert id="batchInsertData">
+        insert into t_address (`name`,areaid,operatorid) values 
+         <foreach collection="list" item="city" separator=",">
+             (#{city.name},#{city.areaid},#{city.operatorid})
+         </foreach>
+    </insert>
 
 </mapper>

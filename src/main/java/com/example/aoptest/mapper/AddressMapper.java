@@ -3,6 +3,9 @@ package com.example.aoptest.mapper;
 import com.example.aoptest.entity.Address;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
+import org.springframework.scheduling.annotation.Async;
+
+import java.util.List;
 
 /**
  * <p>
@@ -14,5 +17,8 @@ import org.apache.ibatis.annotations.Mapper;
  */
 @Mapper
 public interface AddressMapper extends BaseMapper<Address> {
+
+    @Async
+    void batchInsertData(List<Address> addressList);
 
 }
